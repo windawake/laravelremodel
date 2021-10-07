@@ -1,0 +1,28 @@
+{
+    "name": "windawake/remote2model",
+    "description": "Convert remote api response data into laravel model.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zibin Zhang",
+            "email": "619146134@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Laravel\\Remote2Model\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laravel\\Remote2Model\\Examples\\": "examples/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laravel\\Remote2Model\\RemoteModelServiceProvider"
+            ]
+        }
+    }
+}
