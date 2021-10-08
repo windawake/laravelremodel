@@ -1,6 +1,6 @@
 {
-    "name": "windawake/remote2model",
-    "description": "Convert remote api response data into laravel model.",
+    "name": "windawake/laravelremodel",
+    "description": "Create remote driver to convert remote api request into laravel model.",
     "license": "MIT",
     "authors": [
         {
