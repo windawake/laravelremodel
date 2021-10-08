@@ -1,2 +1,2 @@
 # laravel remote model
-Convert remote api response data into laravel model
+Create remote driver to convert remote api request into laravel model
