@@ -1,5 +1,5 @@
 <?php
-namespace Laravel\Remote2Model\Examples\Models;
+namespace App\Models;
 
 use Laravel\Remote2Model\RemoteModel;
 
