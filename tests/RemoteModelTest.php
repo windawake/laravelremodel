@@ -27,7 +27,7 @@ class RemoteModelTest extends TestCase
 
     public function testJoin()
     {
-        $detail = OrderDetailRemote::join('order', 'order_detail.o_id', '=', 'order.o_id')->where('o_id',1)->offset(1)->limit(2)->orderBy('o_id','desc')->get();
+        $detail = OrderDetailRemote::join('order', 'order_detail.o_id', '=', 'order.o_id')->where('order.o_id',1)->offset(1)->limit(2)->orderBy('o_id','desc')->get();
         var_dump($detail->toJson());
     }
     public function testCount()

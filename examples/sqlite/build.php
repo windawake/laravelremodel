@@ -18,19 +18,19 @@ $sql =<<<EOF
 
     DROP TABLE IF EXISTS `product`;
     CREATE TABLE product(
-        id INT PRIMARY KEY,
+        pid INT PRIMARY KEY,
         store_id INT NOT NULL DEFAULT 1,
         product_name varchar(32) NOT NULL DEFAULT '',
         status INT NOT NULL DEFAULT 0,
         delete_time INT
     );
 
-    INSERT INTO product (id, store_id, product_name, status, delete_time) VALUES (1, 1, 'computer', 1, 111);
-    INSERT INTO product (id, store_id, product_name, status, delete_time) VALUES (2, 1, '火锅底料', 0, 222);
-    INSERT INTO product (id, store_id, product_name, status, delete_time) VALUES (3, 1, 'まんが', 1, null);
-    INSERT INTO product (id, store_id, product_name, status, delete_time) VALUES (4, 1, '携帯電話', 2, 111);
-    INSERT INTO product (id, store_id, product_name, status, delete_time) VALUES (5, 2, '风扇', 1, 333);
-    INSERT INTO product (id, store_id, product_name, status, delete_time) VALUES (6, 2, '玩具', 1, 111);
+    INSERT INTO product (pid, store_id, product_name, status, delete_time) VALUES (1, 1, 'computer', 1, 111);
+    INSERT INTO product (pid, store_id, product_name, status, delete_time) VALUES (2, 1, '火锅底料', 0, 222);
+    INSERT INTO product (pid, store_id, product_name, status, delete_time) VALUES (3, 1, 'まんが', 1, null);
+    INSERT INTO product (pid, store_id, product_name, status, delete_time) VALUES (4, 1, '携帯電話', 2, 111);
+    INSERT INTO product (pid, store_id, product_name, status, delete_time) VALUES (5, 2, '风扇', 1, 333);
+    INSERT INTO product (pid, store_id, product_name, status, delete_time) VALUES (6, 2, '玩具', 1, 111);
 
     DROP TABLE IF EXISTS `order`;
     CREATE TABLE `order`(

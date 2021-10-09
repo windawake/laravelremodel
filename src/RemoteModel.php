@@ -29,6 +29,18 @@ class RemoteModel extends Model
     }
 
     /**
+     * Get a new query builder instance for the connection.
+     *
+     * @return \Illuminate\Database\Query\Builder
+     */
+    protected function newBaseQueryBuilder()
+    {
+        $connection = $this->getConnection();
+
+        return $connection->query();
+    }
+
+    /**
      * set queryBuiler property.
      *
      * @param \Illuminate\Database\Query\Builder $query
