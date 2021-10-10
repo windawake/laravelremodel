@@ -22,7 +22,8 @@ class RemoteModelServiceProvider extends ServiceProvider
             'driver' => 'remote',
             'name' => 'remote'
         ];
-        $remoteConfig = array_merge($this->app['config']->get('database.connections.remote'), $remoteMergeConfig);
+        $config = $this->app['config']->get('database.connections.remote') ?? [];
+        $remoteConfig = array_merge($config, $remoteMergeConfig);
 
         $this->app['config']->set('database.connections.remote', $remoteConfig);
 
