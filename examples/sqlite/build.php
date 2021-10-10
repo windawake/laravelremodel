@@ -4,7 +4,7 @@ $sqlite = new SQLite3('test.db');
 $sql =<<<EOF
     DROP TABLE IF EXISTS `common_status`;
     CREATE TABLE `common_status`(
-        id INT PRIMARY KEY,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
         store_id INT NOT NULL DEFAULT 1,
         status_id INT NOT NULL DEFAULT 0,
         name varchar(32) NOT NULL DEFAULT ''
@@ -18,7 +18,7 @@ $sql =<<<EOF
 
     DROP TABLE IF EXISTS `product`;
     CREATE TABLE product(
-        pid INT PRIMARY KEY,
+        pid INTEGER PRIMARY KEY AUTOINCREMENT,
         store_id INT NOT NULL DEFAULT 1,
         product_name varchar(32) NOT NULL DEFAULT '',
         status INT NOT NULL DEFAULT 0,
@@ -34,7 +34,7 @@ $sql =<<<EOF
 
     DROP TABLE IF EXISTS `order`;
     CREATE TABLE `order`(
-        o_id INT PRIMARY KEY,
+        o_id INTEGER PRIMARY KEY AUTOINCREMENT,
         store_id INT NOT NULL DEFAULT 1,
         order_number varchar(32) NOT NULL DEFAULT '',
         status INT NOT NULL DEFAULT 0,
@@ -47,7 +47,7 @@ $sql =<<<EOF
 
     DROP TABLE IF EXISTS `order_detail`;
     CREATE TABLE `order_detail`(
-        od_id INT PRIMARY KEY,
+        od_id INTEGER PRIMARY KEY AUTOINCREMENT,
         store_id INT NOT NULL DEFAULT 1,
         o_id INT NOT NULL DEFAULT 0,
         product_id INT NOT NULL DEFAULT 0,

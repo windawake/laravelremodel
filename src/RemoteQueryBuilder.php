@@ -69,7 +69,7 @@ class RemoteQueryBuilder extends Builder
      */
     public function insertGetId(array $values, $sequence = null)
     {
-        return $this->getModel()->insertGetId($values);
+        return $this->getModel()->insertGetIdHandle($values);
     }
 
     /**
@@ -97,7 +97,7 @@ class RemoteQueryBuilder extends Builder
      */
     public function exists()
     {
-        return $this->getModel()->getHandle();
+        return $this->getModel()->existsHandle();
     }
 
 }

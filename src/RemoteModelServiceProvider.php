@@ -18,10 +18,11 @@ class RemoteModelServiceProvider extends ServiceProvider
             return new RemoteDatabaseManager($app, $app['db.factory']);
         });
 
-        $remoteConfig = [
+        $remoteMergeConfig = [
             'driver' => 'remote',
             'name' => 'remote'
         ];
+        $remoteConfig = array_merge($this->app['config']->get('database.connections.remote'), $remoteMergeConfig);
 
         $this->app['config']->set('database.connections.remote', $remoteConfig);
 
@@ -30,6 +31,10 @@ class RemoteModelServiceProvider extends ServiceProvider
                 return new RemoteConnection(null, $name, '', $config);
             });
             return $db;
+        });
+
+        $this->app->singleton('remote.tool', function ($app) {
+            return new RemoteTool();
         });
     }
 }

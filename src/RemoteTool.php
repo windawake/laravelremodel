@@ -2,14 +2,19 @@
 
 namespace Laravel\Remote2Model;
 
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\DB;
 
-class RemoteHelper
+class RemoteTool
 {
-    public static function queryToCondition(Builder $query)
+    public function queryToCondition($query)
     {
+        if ($query instanceof EloquentBuilder) {
+            $query = $query->getQuery();
+        }
+
         $array = [];
 
         $selectComponents = ['aggregate', 'columns', 'from', 'joins', 'wheres', 'groups', 'havings', 'orders', 'limit', 'offset', 'lock', 'bindings', 'distinct', 'unions'];
@@ -17,10 +22,6 @@ class RemoteHelper
         foreach ($selectComponents as $component) {
             if (isset($query->$component) && !is_null($query->$component)) {
                 $value = $query->$component;
-
-                if ($component == 'bindings') {
-                    $value = array_filter($value);
-                }
 
                 if (in_array($component, ['columns', 'groups'])) {
                     foreach ($value as $key => $val) {
@@ -72,13 +73,17 @@ class RemoteHelper
             }
         }
 
-        $json = json_encode($array, JSON_UNESCAPED_UNICODE);
-        return json_decode($json, true);
+        $env = app()->environment();
+        if (in_array($env, ['local', 'dev', 'development', 'testing'])) {
+            $json = json_encode($array, JSON_UNESCAPED_UNICODE);
+            return json_decode($json, true);
+        } else {
+            return $array;
+        }
 
-        // return $array;
     }
 
-    public static function conditionToQuery($condition, $newQuery = null)
+    public function conditionToQuery($condition, $newQuery = null)
     {
         $newQuery = $newQuery ?? DB::query();
         foreach ($condition as $component => $value) {

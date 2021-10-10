@@ -30,6 +30,7 @@ class RemoteModel extends Model
 
     /**
      * Get a new query builder instance for the connection.
+     * For laravel 5.5 version.
      *
      * @return \Illuminate\Database\Query\Builder
      */
@@ -59,8 +60,12 @@ class RemoteModel extends Model
      */
     public function getHandle()
     {
-        $condition = RemoteHelper::queryToCondition($this->queryBuilder);
-        $query = RemoteHelper::conditionToQuery($condition);
+        /**
+         * @var RemoteTool
+         */
+        $remoteTool = app('remote.tool');
+        $condition = $remoteTool->queryToCondition($this->queryBuilder);
+        $query = $remoteTool->conditionToQuery($condition);
         
         $list = $query->get();
         return $list;
@@ -73,8 +78,12 @@ class RemoteModel extends Model
      */
     public function updateHandle($data = null)
     {
-        $condition = RemoteHelper::queryToCondition($this->queryBuilder);
-        $query = RemoteHelper::conditionToQuery($condition);
+        /**
+         * @var RemoteTool
+         */
+        $remoteTool = app('remote.tool');
+        $condition = $remoteTool->queryToCondition($this->queryBuilder);
+        $query = $remoteTool->conditionToQuery($condition);
         $rowsNum = $query->update($data);
 
         return $rowsNum;
@@ -85,9 +94,13 @@ class RemoteModel extends Model
      *
      * @return int
      */
-    public function insertGetId($data = null) {
-        $condition = RemoteHelper::queryToCondition($this->queryBuilder);
-        $query = RemoteHelper::conditionToQuery($condition);
+    public function insertGetIdHandle($data = null) {
+        /**
+         * @var RemoteTool
+         */
+        $remoteTool = app('remote.tool');
+        $condition = $remoteTool->queryToCondition($this->queryBuilder);
+        $query = $remoteTool->conditionToQuery($condition);
 
         $id = $query->insertGetId($data);
 
@@ -100,11 +113,33 @@ class RemoteModel extends Model
      * @return int
      */
     public function deleteHandle() {
-        $condition = RemoteHelper::queryToCondition($this->queryBuilder);
-        $query = RemoteHelper::conditionToQuery($condition);
+        /**
+         * @var RemoteTool
+         */
+        $remoteTool = app('remote.tool');
+        $condition = $remoteTool->queryToCondition($this->queryBuilder);
+        $query = $remoteTool->conditionToQuery($condition);
         $rowsNum = $query->delete();
 
         return $rowsNum;
+    }
+
+    /**
+     * Overwrite query exists. 
+     *
+     * @return int
+     */
+    public function existsHandle() {
+        /**
+         * @var RemoteTool
+         */
+        $remoteTool = app('remote.tool');
+        $condition = $remoteTool->queryToCondition($this->queryBuilder);
+        $query = $remoteTool->conditionToQuery($condition);
+
+        $boolean = $query->exists();
+
+        return $boolean;
     }
     
 
