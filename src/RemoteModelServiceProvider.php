@@ -7,6 +7,18 @@ use Illuminate\Support\ServiceProvider;
 class RemoteModelServiceProvider extends ServiceProvider
 {
     /**
+     * Bootstrap the application events.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->publishes([
+            __DIR__.'/../examples/Models/' => app_path('Models'),
+        ]);
+    }
+    
+    /**
      * Register the service provider.
      *
      * @return void
