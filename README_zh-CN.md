@@ -7,7 +7,8 @@
 php artisan vendor:publish --provider="Laravel\Remote2Model\RemoteModelServiceProvider"
 ```
 
->laravel58
+```shel
+laravel58
 ├── app
 │   ├── Console
 │   │   └── Kernel.php
@@ -21,6 +22,7 @@ php artisan vendor:publish --provider="Laravel\Remote2Model\RemoteModelServicePr
 │   │   ├── OrderDetailRemote.php
 │   │   ├── OrderRemote.php
 │   │   └── ProductRemote.php
+```
 
 然后执行 `php ./vendor/windawake/laravelremodel/examples/sqlite/build.php` 创建sqlite的数据库文件test.db
 
