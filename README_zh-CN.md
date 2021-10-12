@@ -2,10 +2,7 @@
 安装laravel5.5 - laravel8之间的版本，然后安装快速服务化的package
 >composer require windawake/laravelremodel dev-master
 
-首先执行命令vendor:publish把`./vendor/windawake/laravelremodel/examples/Models`目录下面的OrderDetailRemote.php、OrderRemote.php、 ProductRemote.php三个文件复制到app文件夹下面。
-```shell
-php artisan remote:example-models
-```
+首先执行命令`php artisan remote:example-models`把`./vendor/windawake/laravelremodel/examples/Models`目录下面的OrderDetailRemote.php、OrderRemote.php、 ProductRemote.php三个文件复制到app文件夹下面。
 
 ```shel
 laravel58
