@@ -4,7 +4,7 @@
 
 首先执行命令vendor:publish把`./vendor/windawake/laravelremodel/examples/Models`目录下面的OrderDetailRemote.php、OrderRemote.php、 ProductRemote.php三个文件复制到app文件夹下面。
 ```shell
-php artisan vendor:publish --provider="Laravel\Remote2Model\RemoteModelServiceProvider"
+php artisan remote:example-models
 ```
 
 ```shel
