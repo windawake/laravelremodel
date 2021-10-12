@@ -3,6 +3,7 @@
 namespace Laravel\Remote2Model;
 
 use Illuminate\Support\ServiceProvider;
+use Laravel\Remote2Model\Console\CreateExampleModels;
 
 class RemoteModelServiceProvider extends ServiceProvider
 {
@@ -13,9 +14,9 @@ class RemoteModelServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/../examples/Models/' => app_path('Models'),
-        ]);
+        // $this->publishes([
+        //     __DIR__.'/../examples/Models/' => app_path('Models'),
+        // ]);
     }
     
     /**
@@ -49,5 +50,16 @@ class RemoteModelServiceProvider extends ServiceProvider
         $this->app->singleton('remote.tool', function ($app) {
             return new RemoteTool();
         });
+
+        $this->app->singleton(
+            'command.remote.example-models',
+            function ($app) {
+                return new CreateExampleModels($app['files']);
+            }
+        );
+
+        $this->commands(
+            'command.remote.example-models'
+        );
     }
 }
