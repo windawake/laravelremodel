@@ -113,7 +113,7 @@ class ProductRemote extends RemoteModel {
         /**
          * @var RemoteTool
          */
-        $remoteTool = app('remote.tool');
+        $remoteTool = app('laravelremodel.tool');
         $condition = $remoteTool->queryToCondition($this->queryBuilder);
 
         $client = new \GuzzleHttp\Client();
