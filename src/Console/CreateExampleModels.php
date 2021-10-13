@@ -17,14 +17,14 @@ class CreateExampleModels extends Command
      *
      * @var string
      */
-    protected $signature = 'remote:example-models';
+    protected $signature = 'laravelremodel:example-models';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command to create remote example models';
+    protected $description = 'Command to create laravel remote model example models';
 
     /**
      * Create a new command instance.

@@ -47,19 +47,19 @@ class RemoteModelServiceProvider extends ServiceProvider
             return $db;
         });
 
-        $this->app->singleton('remote.tool', function ($app) {
+        $this->app->singleton('laravelremodel.tool', function ($app) {
             return new RemoteTool();
         });
 
         $this->app->singleton(
-            'command.remote.example-models',
+            'command.laravelremodel.example-models',
             function ($app) {
                 return new CreateExampleModels($app['files']);
             }
         );
 
         $this->commands(
-            'command.remote.example-models'
+            'command.laravelremodel.example-models'
         );
     }
 }

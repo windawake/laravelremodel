@@ -63,7 +63,7 @@ class RemoteModel extends Model
         /**
          * @var RemoteTool
          */
-        $remoteTool = app('remote.tool');
+        $remoteTool = app('laravelremodel.tool');
         $condition = $remoteTool->queryToCondition($this->queryBuilder);
         $query = $remoteTool->conditionToQuery($condition);
         
@@ -81,7 +81,7 @@ class RemoteModel extends Model
         /**
          * @var RemoteTool
          */
-        $remoteTool = app('remote.tool');
+        $remoteTool = app('laravelremodel.tool');
         $condition = $remoteTool->queryToCondition($this->queryBuilder);
         $query = $remoteTool->conditionToQuery($condition);
         $rowsNum = $query->update($data);
@@ -98,7 +98,7 @@ class RemoteModel extends Model
         /**
          * @var RemoteTool
          */
-        $remoteTool = app('remote.tool');
+        $remoteTool = app('laravelremodel.tool');
         $condition = $remoteTool->queryToCondition($this->queryBuilder);
         $query = $remoteTool->conditionToQuery($condition);
 
@@ -116,7 +116,7 @@ class RemoteModel extends Model
         /**
          * @var RemoteTool
          */
-        $remoteTool = app('remote.tool');
+        $remoteTool = app('laravelremodel.tool');
         $condition = $remoteTool->queryToCondition($this->queryBuilder);
         $query = $remoteTool->conditionToQuery($condition);
         $rowsNum = $query->delete();
@@ -133,7 +133,7 @@ class RemoteModel extends Model
         /**
          * @var RemoteTool
          */
-        $remoteTool = app('remote.tool');
+        $remoteTool = app('laravelremodel.tool');
         $condition = $remoteTool->queryToCondition($this->queryBuilder);
         $query = $remoteTool->conditionToQuery($condition);
 
