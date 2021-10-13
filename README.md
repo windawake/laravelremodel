@@ -5,7 +5,7 @@ Install the version between laravel5.5-laravel8, and then install the quick serv
 
 >composer require windawake/laravelremodel dev-master
 
-First execute the command `php artisan remote:example-models` to copy the three files OrderDetailRemote.php, OrderRemote.php, and ProductRemote.php under the `./vendor/windawake/laravelremodel/examples/Models directory` to the `app` folder.
+First execute the command `php artisan laravelremodel:example-models` to copy the three files OrderDetailRemote.php, OrderRemote.php, and ProductRemote.php under the `./vendor/windawake/laravelremodel/examples/Models directory` to the `app` folder.
 
 ```shell
 ├── app
