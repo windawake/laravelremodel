@@ -1,5 +1,10 @@
 # laravel remote model
-Create remote driver to convert remote api request into laravel model
+Create remote driver to convert remote api request into laravel model.
+
+[中文文档](https://github.com/windawake/laravelremodel/blob/master/README_zh-CN.md)
+
+[日本語文書](https://github.com/windawake/laravelremodel/blob/master/README_ja.md)
+
 ## overview
 Install the version between laravel5.5-laravel8, and then install the quick service package.
 
