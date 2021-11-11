@@ -89,7 +89,7 @@ OK (18 tests, 21 assertions)
 1. The app backend code does not need to be refactored, and it gradually connects with the basic service interface of the business.
 2. Support lazy loading, avoiding 1+n query api.
 3. Supports join tables, join tables, native SQL queries, aggregate queries, sub-queries, etc. Almost all laravel orm features can be used.
-4. The laravel service container writing method is used, so the query compiler and distributed transaction methods can be customized. (Distributed transactions have not yet been implemented).
+4. The laravel service container writing method is used, so the query compiler and distributed transaction methods can be customized. ([Distributed transaction component is recommended](https://github.com/windawake/laravel-reset-transaction)).
 
 ## principle
 The api interface of the basic service is encapsulated into an ORM. The model at the back end of the app is just a virtual model, which is a mirror image of the business basic service model. ![](https://cdn.learnku.com/uploads/images/202110/11/46914/okSl0tt7xc.png!large)
