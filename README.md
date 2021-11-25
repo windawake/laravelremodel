@@ -6,11 +6,11 @@ Create remote driver to convert remote api request into laravel model.
 [日本語文書](https://github.com/windawake/laravelremodel/blob/master/README_ja.md)
 
 ## overview
-Install the version between laravel5.5-laravel8, and then install the quick service package.
+Install the version between laravel5.5-laravel8, and then install the quick microservice package.
 
 >composer require windawake/laravelremodel dev-master
 
-First execute the command `php artisan laravelremodel:example-models` to copy the three files OrderDetailRemote.php, OrderRemote.php, and ProductRemote.php under the `./vendor/windawake/laravelremodel/examples/Models directory` to the `app` folder.
+First execute the command `php artisan laravelremodel:example-models` to copy the three files OrderDetailRemote.php, OrderRemote.php, and ProductRemote.php (under the `./vendor/windawake/laravelremodel/examples/Models directory`) into the `app` folder.
 
 ```shell
 ├── app
@@ -28,7 +28,10 @@ First execute the command `php artisan laravelremodel:example-models` to copy th
 │   │   └── ProductRemote.php
 ```
 
-Then execute `php ./vendor/windawake/laravelremodel/examples/sqlite/build.php` to create the SQLite database file test.db
+Then execute command to create the SQLite database file test.db
+```shell
+php ./vendor/windawake/laravelremodel/examples/sqlite/build.php
+```
 
 Add the configuration of sqlite and adds testsuite of Remote in phpunit.xml.
 ```xml
@@ -86,15 +89,14 @@ OK (18 tests, 21 assertions)
 ```
 
 ## features
-1. The app backend code does not need to be refactored, and it gradually connects with the basic service interface of the business.
+1. The app backend code does not need to be refactored, and it is gradually realizing the progressive service of API interface.
 2. Support lazy loading, avoiding 1+n query api.
-3. Supports join tables, join tables, native SQL queries, aggregate queries, sub-queries, etc. Almost all laravel orm features can be used.
+3. Supports join tables, union tables, native SQL queries, aggregate queries, sub-queries, etc. Almost all laravel orm features can be used.
 4. The laravel service container writing method is used, so the query compiler and distributed transaction methods can be customized. ([Distributed transaction component is recommended](https://github.com/windawake/laravel-reset-transaction)).
 
 ## principle
-The api interface of the basic service is encapsulated into an ORM. The model at the back end of the app is just a virtual model, which is a mirror image of the business basic service model. ![](https://cdn.learnku.com/uploads/images/202110/11/46914/okSl0tt7xc.png!large)
-For example, the purple ProductModel is a mirror image, but OrderLogic uses it almost the same as the white ProductModel.
-What are the benefits of doing this? All the features of the laravel model can be reused. Because many packages now do a lot of new functions for the model, it is a pity not to use them.
+The api interface of the remote basic service is encapsulated into an ORM. The my app model is just a virtual model, which is a mirror image of remote basic service model. ![](https://cdn.learnku.com/uploads/images/202110/11/46914/okSl0tt7xc.png!large)
+For example, the purple ProductModel is a mirror image, but OrderLogic uses it almost the same as the white ProductModel. What are the benefits of doing this? All the features of the laravel model can be reused. Because many packages now do a lot of new functions for the model, it is a pity not to use them.
 
 ## how to use
 
@@ -135,7 +137,7 @@ class ProductRemote extends RemoteModel {
     
 }
 ```
-Here is an example of querying getHandle. By default, 5 methods are provided: getHandle, updateHandle, insertGetIdHandle, deleteHandle and existsHandle. After inheriting the RemoteModel class, without defining these methods such as getHandle, it will use the db drive by default, just like the normal Model class.
+The above is an example of querying getHandle. By default, 5 methods are provided: getHandle, updateHandle, insertGetIdHandle, deleteHandle and existsHandle. After inheriting the RemoteModel class, without defining these methods such as getHandle, it will use the db drive by default, just like the normal Model class.
 
 | model method | similar to mysql syntax | purpose |
 | ------------ | ------------ | ------------ |
