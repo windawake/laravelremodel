@@ -1,13 +1,12 @@
 # laravel remote model
+[![中文](https://shields.io/static/v1?label=zh-cn&message=%E4%B8%AD%E6%96%87&color=red)](https://github.com/windawake/laravelremodel/blob/master/README_zh-CN.md)
+[![日本語](https://shields.io/static/v1?label=ja-jp&message=%E6%97%A5%E6%9C%AC%E8%AA%9E&color=blue)](https://github.com/windawake/laravelremodel/blob/master/README_ja.md)
+
 Create remote driver to convert remote api request into laravel model.
 
 ![](https://github.com/windawake/notepad/blob/master/images/webchat01.jpg)
 
 In order to discuss technology with me quickly, you can add me to wechat.
-
-[中文文档](https://github.com/windawake/laravelremodel/blob/master/README_zh-CN.md)
-
-[日本語文書](https://github.com/windawake/laravelremodel/blob/master/README_ja.md)
 
 ## overview
 Install the version between laravel5.5-laravel8, and then install the quick microservice package.
