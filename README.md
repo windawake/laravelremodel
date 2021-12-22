@@ -1,6 +1,10 @@
 # laravel remote model
 Create remote driver to convert remote api request into laravel model.
 
+![](https://github.com/windawake/notepad/blob/master/images/webchat01.jpg)
+
+In order to discuss technology with me quickly, you can add me to wechat.
+
 [中文文档](https://github.com/windawake/laravelremodel/blob/master/README_zh-CN.md)
 
 [日本語文書](https://github.com/windawake/laravelremodel/blob/master/README_ja.md)
@@ -95,7 +99,7 @@ OK (18 tests, 21 assertions)
 4. The laravel service container writing method is used, so the query compiler and distributed transaction methods can be customized. ([Distributed transaction component is recommended](https://github.com/windawake/laravel-reset-transaction)).
 
 ## principle
-The api interface of the remote basic service is encapsulated into an ORM. The my app model is just a virtual model, which is a mirror image of remote basic service model. ![](https://cdn.learnku.com/uploads/images/202110/11/46914/okSl0tt7xc.png!large)
+The api interface of the remote basic service is encapsulated into an ORM. The my app model is just a virtual model, which is a mirror image of remote basic service model. ![](https://github.com/windawake/notepad/blob/master/images/file01.jpg)
 For example, the purple ProductModel is a mirror image, but OrderLogic uses it almost the same as the white ProductModel. What are the benefits of doing this? All the features of the laravel model can be reused. Because many packages now do a lot of new functions for the model, it is a pity not to use them.
 
 ## how to use
