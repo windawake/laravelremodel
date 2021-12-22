@@ -6,7 +6,7 @@ Create remote driver to convert remote api request into laravel model.
 
 ![](https://github.com/windawake/notepad/blob/master/images/webchat01.jpg)
 
-In order to discuss technology with me quickly, you can add me to wechat.
+In order to discuss technology with me, you can add me to wechat.
 
 ## overview
 Install the version between laravel5.5-laravel8, and then install the quick microservice package.
